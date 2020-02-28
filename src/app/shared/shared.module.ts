@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { MaterialModule } from  './material.module'
+
 import { 
   NavbarComponent,
   SearchComponent,
@@ -16,10 +18,11 @@ import {
     TabsComponent,
     CardComponent,
     PaginationComponent,
-    DetailsCardComponent
+    DetailsCardComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     CommonModule,
@@ -28,7 +31,7 @@ import {
     TabsComponent,
     CardComponent,
     PaginationComponent,
-    DetailsCardComponent
+    DetailsCardComponent,
   ]
 })
 

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export default class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor() { } 
 
   ngOnInit(): void {
   }
