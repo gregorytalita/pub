@@ -1,0 +1,6 @@
+export { default as CardComponent } from './card'
+export { default as DetailsCardComponent } from './details-card'
+export { default as NavbarComponent } from './navbar'
+export { default as PaginationComponent } from './pagination'
+export { default as SearchComponent } from './search'
+export { default as TabsComponent } from './tabs'
