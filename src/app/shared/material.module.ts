@@ -6,7 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatIconModule } from '@angular/material/icon'
 import { MatBadgeModule } from '@angular/material/badge'
-
+import { MatPaginatorModule } from '@angular/material/paginator'
 @NgModule({
   imports: [
     MatToolbarModule,
@@ -15,7 +15,8 @@ import { MatBadgeModule } from '@angular/material/badge'
     MatTabsModule,
     MatGridListModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatPaginatorModule
   ],
   exports: [
     MatToolbarModule,
@@ -24,7 +25,8 @@ import { MatBadgeModule } from '@angular/material/badge'
     MatTabsModule,
     MatGridListModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatPaginatorModule
   ]
 })
 

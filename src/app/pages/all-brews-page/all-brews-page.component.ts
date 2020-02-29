@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { BrewService } from '../../core/services/brew.service'
+import { BrewService } from './services/brew.service'
 import { head, tail } from '../../shared/functions'
 
 @Component({

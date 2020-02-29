@@ -4,3 +4,7 @@
     <router-outlet></router-outlet>
   </div>
 </main>
+<mat-paginator 
+  [pageSize]="pageSize"
+  (page)="pageEvent = $event">
+</mat-paginator>

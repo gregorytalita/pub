@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { AppService } from './app.service';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [AppService],
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
@@ -21,6 +20,9 @@ export class AppComponent {
       label: 'Favorite Brews'
     }
   ];
+
+  pageEvent: PageEvent;
+  pageSize = 10;
 
   public handleSearch(value){
     this.search = value
