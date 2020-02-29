@@ -14,7 +14,7 @@
 .card__image {
   width: 118px;
   height: 148px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   border-radius: 4px;
 }

@@ -1,17 +1,17 @@
 <div class="details-card">
   <div class="details-card__content">
     <h1 class="details-card__title">
-      Shiba Inu
+      {{ brew.name }}
     </h1>
-    <img class="details-card__image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img class="details-card__image" [src]="brew.image_url" [alt]="brew.name">
     <div class="details-card__description">
       <p>
-        The brainchild of our small batch brewer, George Woods. A dangerously drinkable milk sugar- infused Scotch Ale.
+        {{ brew.description }}
       </p>
     </div>
     <div class="details-card__actions">
       <p>
-        <span matBadge="4" color="secondary">
+        <span [matBadge]="brew.abv" matBadgeOverlap="false">
           <b>ABV</b>
         </span>
       </p>
