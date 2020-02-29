@@ -11,9 +11,3 @@
 .mat-tab-label {
   position: relative;
 }
-
-:host ::ng-deep .mat-ink-bar{
-  width: 20px!important;
-  left: 25%!important;
-  transform: translateX(-50%);
-}

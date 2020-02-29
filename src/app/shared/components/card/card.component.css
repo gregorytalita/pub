@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  cursor: pointer;
 }
 
 .card__image {
@@ -23,12 +22,25 @@
   padding: 0 8px;
 }
 
+.card__title {
+  overflow: hidden;
+    max-width: 180px;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+}
+
 .card__description {
   overflow: hidden;
+  max-width: 180px;
+  height: 64px;
+  display: -webkit-box;
   text-overflow: ellipsis;
-  max-width: 216px;
-  max-height: 64px;
   margin-bottom: 8px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-break: auto;
 }
 
 .card__actions {

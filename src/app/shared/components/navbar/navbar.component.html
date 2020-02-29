@@ -2,8 +2,8 @@
   <div class="navbar__container">
     <img class="navbar__logo" src="assets/beer.svg">
     <div class="navbar__search">
-      <app-search></app-search>
-      <app-tabs></app-tabs>
+      <app-search [handleSearch]="handleSearch"></app-search>
+      <app-tabs [tabs]="tabs"></app-tabs>
     </div>
   </div>
 </nav>

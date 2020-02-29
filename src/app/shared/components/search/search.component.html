@@ -1,4 +1,6 @@
 <mat-form-field>
-  <mat-label><mat-icon>search</mat-icon></mat-label>
-  <input matInput>
+  <mat-label>
+    <mat-icon>search</mat-icon>
+  </mat-label>
+  <input matInput (blur)="handleSearch($event.target.value)">
 </mat-form-field>

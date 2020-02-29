@@ -1,4 +1,10 @@
 <nav mat-tab-nav-bar>
-  <a routerLink="all" mat-tab-link active="true"> All </a>
-  <a routerLink="favorites" mat-tab-link>Favorite Brews</a>
+  <a 
+    mat-tab-link 
+    *ngFor="let tab of tabs" 
+    [routerLink]="tab.path"
+    (click)="activeTab = tab.path"
+    [active]="activeTab === tab.path">
+    {{ tab.label }}
+  </a>
 </nav>

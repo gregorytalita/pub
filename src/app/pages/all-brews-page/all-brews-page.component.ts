@@ -11,22 +11,13 @@ import { head, tail } from '../../shared/functions'
 export default class AllBrewsPageComponent implements OnInit {
   highlight;
   brews;
-  
   constructor(private brewService: BrewService) { }
 
   ngOnInit(): void {
     this.brewService.getBrews()
-    .subscribe((data: [any]) => {
-      this.highlight = head(data)
-      this.brews = tail(data)
-    })
-  }
-
-  updateHighlight(selectedBrew): void {
-    const filteredBrews = this.brews.filter(brew => brew !== selectedBrew)
-    const selected = this.brews.filter(brew => brew === selectedBrew)
-
-    this.brews = [ ...filteredBrews, this.highlight ]
-    this.highlight = selected
+      .subscribe((data: [object]) => {
+        this.highlight = head(data)
+        this.brews = tail(data)
+      })
   }
 }
