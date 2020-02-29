@@ -1,0 +1,20 @@
+main {
+  width: 100%;
+  height: calc(100% - 126px);
+  padding: 42px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  max-width: 80%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-grid-list {
+  width: 100%;
+}

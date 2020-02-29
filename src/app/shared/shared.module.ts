@@ -26,6 +26,7 @@ import {
   ],
   exports: [
     CommonModule,
+    MaterialModule,
     NavbarComponent,
     SearchComponent,
     TabsComponent,
