@@ -1,13 +1,6 @@
 <app-navbar></app-navbar>
 <main>
   <div class="container">
-    <mat-grid-list gutterSize="8px" cols="3" rowHeight="196px" >
-      <mat-grid-tile colspan="1" rowspan="3">
-        <app-details-card></app-details-card>
-      </mat-grid-tile>
-      <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
-        <app-card></app-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+    <router-outlet></router-outlet>
   </div>
 </main>
