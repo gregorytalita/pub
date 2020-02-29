@@ -5,6 +5,8 @@
   justify-content: center;
   background-color: #ffffff;
   box-shadow: 0px 6px 16px #00000029;
+  border-radius: 0;
+  animation: splashMenu 3s ease-in-out;
 }
 
 .navbar__container {
@@ -15,9 +17,47 @@
   width: 80%;
 }
 
+.navbar__search {
+  animation: hideSearch 2s 3.2s ease forwards;
+  animation-fill-mode: backwards;
+}
+
 .navbar__logo {
   position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  animation: splashLogo 2.5s ease-in-out forwards;
+}
+
+@keyframes splashMenu {
+  0% {
+    height: 90%;
+    border-radius: 16px;
+  }
+  50% {
+    height: 100%;
+    border-radius: 32px;
+  }
+}
+
+@keyframes splashLogo {
+  from {
+    width: 400px;
+    left: 60%;
+    top: 60%;
+    transform: translate(-60%, -60%);
+  }
+  to {
+    width: 76px;
+    left: 0%;
+    top: 50%;
+    transform: translate(0%, -50%);
+  }
+}
+
+@keyframes hideSearch {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,6 +1,5 @@
 main {
   width: 100%;
-  height: calc(100% - 126px);
   padding: 42px 0;
   display: flex;
   justify-content: center;
