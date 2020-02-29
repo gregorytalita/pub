@@ -1,0 +1,10 @@
+.no-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-content__image {
+  opacity: .8;
+}

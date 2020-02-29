@@ -9,7 +9,8 @@ import {
   TabsComponent,
   CardComponent,
   PaginationComponent,
-  DetailsCardComponent 
+  DetailsCardComponent,
+  NoContentComponent
 } from './components';
 
 @NgModule({
@@ -20,6 +21,7 @@ import {
     CardComponent,
     PaginationComponent,
     DetailsCardComponent,
+    NoContentComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import {
     CardComponent,
     PaginationComponent,
     DetailsCardComponent,
+    NoContentComponent
   ]
 })
 
