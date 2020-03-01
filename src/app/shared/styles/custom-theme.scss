@@ -3,15 +3,12 @@
 
 $pub-primary: mat-palette($mat-orange);
 $pub-accent: mat-palette($mat-blue);
-
-// The warn palette is optional (defaults to red).
 $pub-warn: mat-palette($mat-red);
 
-// Create the theme object (a Sass map containing all of the palettes).
 $pub-theme: mat-light-theme($pub-primary, $pub-accent, $pub-warn);
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($pub-theme);
 
+.color-red { 
+  color: red;
+}

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
+import { Beer } from '../../../core/interfaces/beer/beer.interface'
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BrewService {
+  brews: Array<Beer> = []
 
   constructor(private http: HttpClient) { }
 

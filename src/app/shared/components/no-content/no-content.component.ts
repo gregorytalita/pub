@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './no-content.component.html',
   styleUrls: ['./no-content.component.css']
 })
+
 export default class NoContentComponent {}

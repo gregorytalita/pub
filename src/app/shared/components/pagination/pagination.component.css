@@ -1,0 +1,15 @@
+:host {
+  width: 100%;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-fab {
+  margin: 16px 8px;
+  color: #ffffff;
+}

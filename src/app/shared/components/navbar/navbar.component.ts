@@ -10,5 +10,4 @@ import { FunctionCall } from '@angular/compiler';
 export default class NavbarComponent {
   @Input('tabs') tabs: Array<Object>;
   @Input('handleSearch') handleSearch: FunctionCall;
-
 }

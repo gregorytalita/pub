@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Beer } from '../../../core/interfaces/beer/beer.interface'
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
-  favorites = [];
+  favorites: Array<Beer> = [];
 
-  constructor() { }
-
-  public addFavorite(brew) {
-    this.favorites = [ ...this.favorites, brew ]
+  addFavorite(brew: Beer): void {
+    this.favorites = [ ...this.favorites, brew ];
   }
 
-  public removeFavorites(brew) {
-    this.favorites = this.favorites.filter(favorite => favorite !== brew)
+  removeFavorite(brew: Beer): void {
+    this.favorites = this.favorites.filter(favorite => favorite !== brew);
   }
 
+  isFavorite(brew): boolean {
+    return this.favorites.includes(brew);
+  }
 }

@@ -1,10 +1,7 @@
 <app-navbar [tabs]="tabs" [handleSearch]="handleSearch"></app-navbar>
 <main>
-  <div class="container">
+  <div class="container" *ngIf="loaded">
     <router-outlet></router-outlet>
+    <app-pagination [nextDisabled]="nextDisabled" [prevDisabled]="prevDisabled"></app-pagination>
   </div>
 </main>
-<mat-paginator 
-  [pageSize]="pageSize"
-  (page)="pageEvent = $event">
-</mat-paginator>

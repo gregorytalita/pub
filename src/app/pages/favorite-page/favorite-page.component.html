@@ -1,10 +1,10 @@
-<div *ngIf="favorites; else noContent" >
+<div *ngIf="highlight; else noContent" >
   <mat-grid-list gutterSize="8px" cols="3" rowHeight="196px" >
     <mat-grid-tile colspan="1" rowspan="3">
-      <app-details-card [brew]="highlight"></app-details-card>
+      <app-details-card [brew]="highlight" [handleFavorite]="handleFavorite" [isFavorite]="isFavorite"></app-details-card>
     </mat-grid-tile>
     <mat-grid-tile *ngFor="let brew of brews" colspan="1" rowspan="1">
-      <app-card [brew]="brew"></app-card>
+      <app-card [brew]="brew" [handleFavorite]="handleFavorite" [isFavorite]="isFavorite"></app-card>
     </mat-grid-tile>
   </mat-grid-list>  
 </div>
