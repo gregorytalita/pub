@@ -1,4 +1,4 @@
-<mat-grid-list gutterSize="8px" cols="3" rowHeight="196px" *ngIf="highlight; else noContent">
+<mat-grid-list gutterSize="8px" cols="3" rowHeight="196px" *ngIf="highlight && !searchQuery.length; else noContent">
   <mat-grid-tile colspan="1" rowspan="3">
     <app-details-card [brew]="highlight" [handleFavorite]="handleFavorite" [isFavorite]="isFavorite"></app-details-card>
   </mat-grid-tile>
