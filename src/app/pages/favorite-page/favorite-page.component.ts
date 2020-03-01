@@ -8,26 +8,38 @@ import { Beer } from '../../core/interfaces/beer/beer.interface';
   templateUrl: './favorite-page.component.html',
   styleUrls: ['./favorite-page.component.css']
 })
+
 export default class FavoritePageComponent {
+  favorites: Array<Beer>;
   highlight: Beer | any;
   brews: Beer | any;
 
   constructor(private favoritesService: FavoritesService){};
 
   ngOnInit(): void {
-    const favorties = this.favoritesService.favorites;
-
-    this.highlight = head(favorties);
-    this.brews = tail(favorties);
+    this.favoritesService.currentFavorites.subscribe(favorites => {
+      this.favorites = favorites;
+      this.highlight = head(favorites);
+      this.brews = tail(favorites);
+    });
   };
 
-  handleFavorite = (brew): void => {
+  handleFavorite = (brew: Beer): void => {
     this.isFavorite(brew)
-    ? this.favoritesService.removeFavorite(brew)
-    : this.favoritesService.addFavorite(brew);
+    ? this.removeFavorite(brew)
+    : this.addFavorite(brew);
   };
 
-  isFavorite = (brew: Beer): boolean => {
-    return this.favoritesService.isFavorite(brew);
+  addFavorite(brew: Beer): void {
+    this.favoritesService.updateFavorites([ ...this.favorites, brew ]);
   };
+
+  removeFavorite(brew: Beer): void {
+    const filteredFavorites = this.favorites.filter(favorite => favorite !== brew);
+    this.favoritesService.updateFavorites(filteredFavorites);
+  };
+
+  isFavorite = (brew): boolean => {
+    return this.favorites.includes(brew);
+  }
 }

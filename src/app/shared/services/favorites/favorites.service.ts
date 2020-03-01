@@ -1,21 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Beer } from '../../../core/interfaces/beer/beer.interface'
+import { BehaviorSubject } from 'rxjs';
+import { Beer } from '../../../core/interfaces/beer/beer.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
-  favorites: Array<Beer> = [];
+  private favorites = new BehaviorSubject([]);
+  currentFavorites = this.favorites.asObservable();
 
-  addFavorite(brew: Beer): void {
-    this.favorites = [ ...this.favorites, brew ];
-  }
-
-  removeFavorite(brew: Beer): void {
-    this.favorites = this.favorites.filter(favorite => favorite !== brew);
-  }
-
-  isFavorite(brew): boolean {
-    return this.favorites.includes(brew);
-  }
+  updateFavorites(brews: Array<Beer>) {
+    this.favorites.next(brews);
+  };
 }

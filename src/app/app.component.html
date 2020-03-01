@@ -2,6 +2,11 @@
 <main>
   <div class="container" *ngIf="loaded">
     <router-outlet></router-outlet>
-    <app-pagination [nextDisabled]="nextDisabled" [prevDisabled]="prevDisabled"></app-pagination>
+    <app-pagination 
+      [handleChange]="handleChange"
+      [nextDisabled]="nextDisabled()" 
+      [prevDisabled]="prevDisabled()"
+    >
+    </app-pagination>
   </div>
 </main>

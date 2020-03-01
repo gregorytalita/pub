@@ -2,7 +2,7 @@
 @include mat-core();
 
 $pub-primary: mat-palette($mat-orange);
-$pub-accent: mat-palette($mat-blue);
+$pub-accent: mat-palette($mat-blue,800);
 $pub-warn: mat-palette($mat-red);
 
 $pub-theme: mat-light-theme($pub-primary, $pub-accent, $pub-warn);

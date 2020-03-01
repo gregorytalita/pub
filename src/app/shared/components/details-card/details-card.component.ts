@@ -11,8 +11,4 @@ export default class DetailsCardComponent {
   @Input('brew') brew: Beer;
   @Input('handleFavorite') handleFavorite: Function;
   @Input('isFavorite') isFavorite: Function;
-
-  ngOnInit() {
-    console.log(this.isFavorite(this.brew))
-  }
 }

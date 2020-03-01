@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export default class PaginationComponent {
   @Input('prevDisabled') prevDisabled: boolean;
   @Input('nextDisabled') nextDisabled: boolean;
+  @Input('handleChange') handleChange: Function;
 }

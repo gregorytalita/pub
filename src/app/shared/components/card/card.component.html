@@ -9,11 +9,11 @@
     </p>
     <div class="card__actions">
       <p>
-        <span [matBadge]="brew.abv" matBadgeOverlap="false">
+        <span [matBadge]="brew.abv" matBadgeOverlap="false" color="accent">
           <b>ABV</b>
         </span>
       </p>
-      <button mat-icon-button aria-label="Favorite" (click)="handleFavorite(brew)">
+      <button mat-icon-button aria-label="Favorite" (click)="handleFavorite(brew)" [ngClass]="{'color-red': isFavorite(brew)}">
         <mat-icon>favorite</mat-icon>
       </button>
     </div>

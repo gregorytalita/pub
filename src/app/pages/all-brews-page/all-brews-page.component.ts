@@ -11,6 +11,7 @@ import { head, tail } from '../../shared/functions';
 })
 
 export default class AllBrewsPageComponent implements OnInit {
+  favorites: Array<Beer>;
   highlight: Beer | any;
   brews: Array<Beer> | any;
 
@@ -20,17 +21,32 @@ export default class AllBrewsPageComponent implements OnInit {
   ) { };
 
   ngOnInit(): void {
-    this.highlight = head(this.brewService.brews);
-    this.brews = tail(this.brewService.brews);
+    this.brewService.currentBrews.subscribe(brews => {
+      this.highlight = head(brews);
+      this.brews = tail(brews);
+    });
+
+    this.favoritesService.currentFavorites.subscribe(brews => {
+      this.favorites = brews;
+    })
   };
 
   handleFavorite = (brew: Beer): void => {
     this.isFavorite(brew)
-    ? this.favoritesService.removeFavorite(brew)
-    : this.favoritesService.addFavorite(brew);
+    ? this.removeFavorite(brew)
+    : this.addFavorite(brew);
   };
 
-  isFavorite = (brew: Beer): boolean => {
-    return this.favoritesService.isFavorite(brew);
+  addFavorite(brew: Beer): void {
+    this.favoritesService.updateFavorites([ ...this.favorites, brew ]);
   };
+
+  removeFavorite(brew: Beer): void {
+    const filteredFavorites = this.favorites.filter(favorite => favorite !== brew);
+    this.favoritesService.updateFavorites(filteredFavorites);
+  };
+
+  isFavorite = (brew): boolean => {
+    return this.favorites.includes(brew);
+  }
 }

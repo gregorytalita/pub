@@ -1,8 +1,8 @@
 <div class="pagination">
-  <button mat-fab color="primary" aria-label="Arrow left" [disabled]="prevDisabled">
+  <button mat-fab color="primary" aria-label="Arrow left" [disabled]="prevDisabled" (click)="handleChange(-1)">
     <mat-icon>keyboard_arrow_left</mat-icon>
   </button>
-  <button mat-fab color="primary" aria-label="Arrow right" [disabled]="nextDisabled">
+  <button mat-fab color="primary" aria-label="Arrow right" [disabled]="nextDisabled" (click)="handleChange(1)">
     <mat-icon>keyboard_arrow_right</mat-icon>
   </button>
 </div>
