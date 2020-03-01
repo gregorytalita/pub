@@ -12,4 +12,9 @@ export class FavoritesService {
   updateFavorites(brews: Array<Beer>) {
     this.favorites.next(brews);
   };
+
+  getCurrentFavorites() {
+    return this.currentFavorites
+  };
+
 }

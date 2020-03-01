@@ -1,12 +1,6 @@
 <app-navbar [tabs]="tabs" [handleSearch]="handleSearch"></app-navbar>
 <main>
-  <div class="container" *ngIf="loaded">
+  <div class="container">
     <router-outlet></router-outlet>
-    <app-pagination 
-      [handleChange]="handleChange"
-      [nextDisabled]="nextDisabled()" 
-      [prevDisabled]="prevDisabled()"
-    >
-    </app-pagination>
   </div>
 </main>

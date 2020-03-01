@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { head, tail } from '../../shared/functions';
 import { FavoritesService } from 'src/app/shared/services/favorites/favorites.service';
 import { Beer } from '../../core/interfaces/beer/beer.interface';
+import { SearchService } from 'src/app/shared/services/search/search.service';
 
 @Component({
   selector: 'app-favorite-page',
@@ -14,15 +15,31 @@ export default class FavoritePageComponent {
   highlight: Beer | any;
   brews: Beer | any;
 
-  constructor(private favoritesService: FavoritesService){};
+  constructor(
+    private favoritesService: FavoritesService,
+    private searchService: SearchService
+  ){};
 
   ngOnInit(): void {
-    this.favoritesService.currentFavorites.subscribe(favorites => {
+    this.favoritesService.currentFavorites.subscribe((favorites: Array<Beer>) => {
       this.favorites = favorites;
-      this.highlight = head(favorites);
-      this.brews = tail(favorites);
+      this.setBrewGrid(favorites);
+    });
+
+    this.searchService.currentSearch.subscribe(searchQuery => {
+      let beersMatch: Array<Beer>;
+      beersMatch = this.favorites.filter(beer => {
+        return beer.name.includes(searchQuery) || beer.description.includes(searchQuery)
+      });
+
+      this.setBrewGrid(beersMatch);
     });
   };
+
+  setBrewGrid([head, ...tail]: Array<Beer>):void {
+    this.highlight = head
+    this.brews = tail;
+  }
 
   handleFavorite = (brew: Beer): void => {
     this.isFavorite(brew)

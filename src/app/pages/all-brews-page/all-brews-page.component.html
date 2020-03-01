@@ -6,6 +6,14 @@
     <app-card [brew]="brew" [handleFavorite]="handleFavorite" [isFavorite]="isFavorite"></app-card>
   </mat-grid-tile>
 </mat-grid-list>
+
+<app-pagination 
+  [handleChange]="handleChange"
+  [nextDisabled]="nextDisabled()" 
+  [prevDisabled]="prevDisabled()"
+>
+</app-pagination>
+
 <ng-template #noContent>
   <app-no-content></app-no-content>
 </ng-template>

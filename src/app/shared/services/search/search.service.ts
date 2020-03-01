@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Beer } from '../../../core/interfaces/beer/beer.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  search: string = '';
+  private search: BehaviorSubject<string> = new BehaviorSubject('');
+  currentSearch = this.search.asObservable();
 
-  public handleSearch(value: string): void{
-    this.search = value
-  }
+  updateSearch(query: string) {
+    this.search.next(query);
+  };
 
-  public filterDescription(brews: Array<Beer>): Array<Beer> {
-    return brews.filter(({ description }) => description.includes(this.search))
+  getCurrentSearch() {
+    return this.search;
   }
 }

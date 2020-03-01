@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaginationService {
-  currentPage: number = 1;
+  private page: BehaviorSubject<number> = new BehaviorSubject(1);
   nextPageAvailable: boolean = false;
   previousPageAvailable: boolean = false;
+  currentPage = this.page.asObservable();
 
+  getCurrentPage() {
+    return this.page
+  }
 
-  handlePage(value: number) {
-    this.currentPage = value;
-    this.currentPage <= 1 
-      ? this.previousPageAvailable = false 
-      : this.previousPageAvailable = true;
+  updatePage(page: number) {
+    this.page.next(page)
   }
 }

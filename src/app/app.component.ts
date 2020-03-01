@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BrewService } from './shared/services/brew/brew.service';
+import { Component } from '@angular/core';
 import { SearchService } from './shared/services/search/search.service';
-import { PaginationService } from './shared/services/pagination/pagination.service';
-import { Beer } from './core/interfaces/beer/beer.interface';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +7,7 @@ import { Beer } from './core/interfaces/beer/beer.interface';
   styleUrls: ['./app.component.css'],
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'pub';
   loaded = false;
   tabs = [
@@ -24,46 +21,9 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  constructor(
-    private brewService: BrewService,
-    private searchService: SearchService,
-    private paginationService: PaginationService
-  ){}
-
-  ngOnInit():void {
-    this.loadContent();
-  }
-
-  loadContent() {
-    const page = this.paginationService.currentPage;
-    const searchQuery = this.searchService.search;
-  
-    this.brewService.getBrews(page, searchQuery)
-      .subscribe((data: Array<Beer>) => { 
-        this.brewService.updateBrews(data)
-        this.loaded = true;
-      });
-
-    this.brewService.getBrews(page + 1, searchQuery)
-      .subscribe((data: Array<Beer>) => {
-        this.paginationService.nextPageAvailable = data.length > 0
-      });
-  }
+  constructor(private searchService: SearchService){};
 
   handleSearch = (value: string): void => {
-    this.searchService.search = value.length > 0? `&beer_name=${value}` : '';
-    this.loadContent();
+    this.searchService.updateSearch(value);
   };
-
-  prevDisabled = (): boolean => {
-    return !this.paginationService.previousPageAvailable;
-  };
-
-  nextDisabled = (): boolean => {
-    return !this.paginationService.nextPageAvailable;
-  };
-
-  handleChange = (value: number): void => {
-    this.paginationService.currentPage +=  value
-  }
 }
